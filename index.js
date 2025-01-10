@@ -1,3 +1,5 @@
+import createPrompt from 'prompt-sync';
+
 // Define a Set to hold the options and their strengths
 const options = new Set([
     { option: 'rock', strongAgainst: 'scissors' },
@@ -29,7 +31,7 @@ function getComputerChoice() {
 
 // Main game function
 function playGame() {
-    const prompt = require('prompt-sync')(); // Using prompt-sync for user input
+    const prompt = createPrompt(); // Using prompt-sync for user input
     let playerChoice;
     let bValidChoice;
     do

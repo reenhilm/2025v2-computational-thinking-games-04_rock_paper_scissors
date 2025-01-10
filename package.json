@@ -1,5 +1,6 @@
 {
   "name": "2025v2-computational-thinking-games-04_rock_paper_scissors",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
