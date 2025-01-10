@@ -1,19 +1,19 @@
 import createPrompt from 'prompt-sync';
 
-// Define a Set to hold the options and their strengths
+//Define a Set to hold the options and their strengths
 const options = new Set([
     { option: 'rock', strongAgainst: 'scissors' },
     { option: 'paper', strongAgainst: 'rock' },
     { option: 'scissors', strongAgainst: 'paper' }
 ]);
 
-// Helper function to determine the winner
+//Helper function to determine the winner
 function determineWinner(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
         return "It's a tie!";
     }
 
-    // Find the player's and computer's options in the Set
+    //Find the player's and computer's options in the Set
     const playerOption = [...options].find(opt => opt.option === playerChoice);
 
     if (playerOption.strongAgainst === computerChoice) {
@@ -23,22 +23,23 @@ function determineWinner(playerChoice, computerChoice) {
     }
 }
 
-// Function to simulate computer choice
+//Function to simulate computer choice
 function getComputerChoice() {
-    const choices = [...options].map(opt => opt.option); // Extract the options from the Set
+    //Extract the options from the Set
+    const choices = [...options].map(opt => opt.option);
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-// Main game function
+//Main game function
 function playGame() {
-    const prompt = createPrompt(); // Using prompt-sync for user input
+    const prompt = createPrompt();
     let playerChoice;
     let bValidChoice;
     do
     {
         playerChoice = prompt("Choose rock, paper, or scissors: ").toLowerCase();
 
-        // Validate user input
+        //Validate user input
         if (![...options].map(opt => opt.option).includes(playerChoice)) {
             bValidChoice = false;
             console.log("Invalid choice! Please choose rock, paper, or scissors.");
@@ -55,5 +56,5 @@ function playGame() {
     console.log(result);
 }
 
-// Start the game
+//Start the game
 playGame();
